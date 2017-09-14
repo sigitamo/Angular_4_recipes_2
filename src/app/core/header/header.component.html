@@ -1,0 +1,57 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a routerLink="/" class="navbar-brand">Recipe Book</a>
+        </div>
+        <!--<div class="collapse navbar-collapse">-->
+        <div>
+           <ul class="nav navbar-nav"> 
+                <li routerLinkActive="active"><a routerLink="/recipes" style="cursor: pointer;">Recipes</a></li>
+                <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
+           </ul>
+                
+            <ul class="nav navbar-nav navbar-right">
+                <ng-template [ngIf]="!(authState | async).authenticated">
+                    <li>
+                        <a routerLink="/signup">Register</a>
+                    </li>
+                    <li>
+                        <a routerLink="/signin">Login</a>
+                    </li>
+                </ng-template>
+                <li> 
+                    <a 
+                        style="cursor: pointer;"
+                        (click)="onLogout()"
+                        *ngIf="(authState | async).authenticated">
+                        Logout
+                    </a> 
+                </li>
+                <li 
+                    class="dropdown" 
+                    appDropdown
+                    *ngIf="(authState | async).authenticated">
+                    <a 
+                        style="cursor: pointer;" 
+                        class="dropdown-toggle" 
+                        role="button">
+                            Mannage 
+                            <span class="caret"></span>
+                    </a>
+                        <ul class="dropdown-menu">
+                            <li 
+                                style="cursor: pointer;" 
+                                (click)="onSaveData()">
+                                    <a>Save Date</a>
+                            </li>
+                            <li 
+                                style="cursor: pointer;"
+                                (click)="onFetchData()">
+                                <a>Fetch Data</a>
+                            </li>
+                        </ul>
+                </li> 
+            </ul>
+        </div>
+    </div>
+</nav>
