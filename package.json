@@ -23,6 +23,8 @@
     "@angular/platform-server": "^4.3.6",
     "@angular/router": "^4.3.6",
     "@ngrx/effects": "^4.0.5",
+    "@ngrx/router-store": "^4.0.4",
+    "@ngrx/store-devtools": "^4.0.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.1",
     "firebase": "^4.3.0",
